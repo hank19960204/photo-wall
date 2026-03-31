@@ -1,0 +1,102 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@300;400;600&family=Reenie+Beanie&display=swap');
+
+@theme {
+  --font-handwriting: "Caveat", cursive;
+  --font-scribble: "Reenie Beanie", cursive;
+  --font-sans: "Montserrat", sans-serif;
+
+  --color-vintage-bg: #E8E2D6;
+  --color-polaroid: #FDFDFD;
+  --color-cork: #3D3028;
+}
+
+body {
+  @apply bg-vintage-bg text-neutral-800 font-sans antialiased;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+}
+
+/* ── Polaroid ─────────────────────────────────────── */
+.polaroid-shadow {
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.1),
+    0 12px 28px rgba(0,0,0,0.15),
+    inset 0 0 2px rgba(255,255,255,0.6);
+}
+
+.polaroid-shadow-hover {
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.3),
+    0 10px 20px rgba(0,0,0,0.15),
+    inset 0 0 3px rgba(255,255,255,0.9);
+}
+
+.polaroid-texture {
+  background-color: #fdfdfd;
+  background-image:
+    url("https://www.transparenttextures.com/patterns/natural-paper.png"),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 100%);
+  background-blend-mode: soft-light, overlay;
+  border: 1px solid rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.polaroid-texture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(0,0,0,0.02) 100%);
+  pointer-events: none;
+}
+
+/* ── Pushpin ─────────────────────────────────────── */
+.pushpin {
+  @apply absolute top-[-22px] left-1/2 -translate-x-1/2 w-8 h-8 rounded-full z-20;
+  background: radial-gradient(circle at 35% 35%, #ff7675 0%, #d63031 45%, #8b0000 100%);
+  box-shadow:
+    4px 8px 16px rgba(0,0,0,0.5),
+    inset -3px -3px 6px rgba(0,0,0,0.4),
+    inset 3px 3px 6px rgba(255,255,255,0.5);
+}
+
+.pushpin::before {
+  content: '';
+  @apply absolute top-[100%] left-[60%] w-[3px] h-5 bg-black/50 blur-[2px] -rotate-[25deg];
+  transform-origin: top center;
+}
+
+.pushpin::after {
+  content: '';
+  @apply absolute top-[25%] left-[25%] w-2 h-2 bg-white/40 rounded-full blur-[1px];
+}
+
+/* ── Stickers ────────────────────────────────────── */
+.sticker {
+  @apply px-3 py-1 text-sm font-handwriting font-bold mix-blend-multiply rotate-[-2deg] shadow-sm;
+  clip-path: polygon(2% 5%, 98% 2%, 95% 95%, 5% 98%);
+}
+
+.sticker-pink   { background-color: rgba(255, 105, 180, 0.75); }
+.sticker-yellow { background-color: rgba(255, 255,   0, 0.75); }
+.sticker-green  { background-color: rgba(80,  250, 123, 0.75); }
+
+/* ── Cork board ──────────────────────────────────── */
+.corkboard {
+  background-color: #3d3028;
+  background-image: url("https://www.transparenttextures.com/patterns/cork-board.png");
+}
+
+.paper-texture {
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+}
+
+/* ── 3D Flip ─────────────────────────────────────── */
+.perspective-1000   { perspective: 1000px; }
+.backface-hidden    { backface-visibility: hidden; }
+.rotate-y-180       { transform: rotateY(180deg); }
+.transform-style-3d { transform-style: preserve-3d; }
+
+/* ── Glass filter ────────────────────────────────── */
+.filter-glass {
+  @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-lg;
+}
